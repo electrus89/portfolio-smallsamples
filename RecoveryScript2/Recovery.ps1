@@ -1,6 +1,6 @@
 ﻿# This function runs an installer, waiting until it stops execution.
 function Invoke-Installer($path) {
-    $process = Start-Process -Wait -WorkingDirectory (Split-Path -Path $path -Parent) -FilePath "$pwd\$path"
+    Start-Process -Wait -WorkingDirectory (Split-Path -Path $path -Parent) -FilePath "$pwd\$path"
 }
 
 # This function runs a file, and doesn't wait for termination.
@@ -11,18 +11,18 @@ function Invoke-File($path) {
 # This function runs a batch file, and waits for termination.
 function Invoke-BatchFile($path) {
     # The argument list looks weird but that's so the concatenation of the quotes around the parameter works properly.
-    $process = Start-Process -Wait -FilePath "cmd" -WorkingDirectory (Split-Path -Path $path -Parent) -ArgumentList (("/c ")+('"')+("$pwd\$path")+('"'))
+    Start-Process -Wait -FilePath "cmd" -WorkingDirectory (Split-Path -Path $path -Parent) -ArgumentList (("/c ")+('"')+("$pwd\$path")+('"'))
 }
 
 # This function adds a .reg file's entries to the registry.
 function Invoke-RegFile($path) {
     # The argument list looks weird but that's so the concatenation of the quotes around the parameter works properly.
-    $process = Start-Process -Wait -FilePath "cmd" -WorkingDirectory (Split-Path -Path $path -Parent) -ArgumentList (("/c reg import ")+('"')+("$pwd\$path")+('"'))
+    Start-Process -Wait -FilePath "cmd" -WorkingDirectory (Split-Path -Path $path -Parent) -ArgumentList (("/c reg import ")+('"')+("$pwd\$path")+('"'))
 }
 
 # This function copies a bunch of files using XCOPY.
 function Copy-Files($pathto, $pathfrom) {
-    $process = Start-Process -Wait -FilePath "cmd" -WorkingDirectory $pathto -ArgumentList (("/c xcopy /e /h /y /b /j ")+('"')+("$pwd\$pathfrom")+('" "')+($pathto)+('"'))
+    Start-Process -Wait -FilePath "cmd" -WorkingDirectory $pathto -ArgumentList (("/c xcopy /e /h /y /b /j ")+('"')+("$pwd\$pathfrom")+('" "')+($pathto)+('"'))
 }
 
 # This reads all command lines and processes them.
