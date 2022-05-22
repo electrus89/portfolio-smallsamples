@@ -17,7 +17,7 @@ function Invoke-BatchFile($path) {
 # This function adds a .reg file's entries to the registry.
 function Invoke-RegFile($path) {
     # The argument list looks weird but that's so the concatenation of the quotes around the parameter works properly.
-    $process = Start-Process -Wait -FilePath "cmd" -WorkingDirectory (Split-Path -Path $path -Parent) -ArgumentList (("/c reg add ")+('"')+("$pwd\$path")+('"'))
+    $process = Start-Process -Wait -FilePath "cmd" -WorkingDirectory (Split-Path -Path $path -Parent) -ArgumentList (("/c reg import ")+('"')+("$pwd\$path")+('"'))
 }
 
 # This reads all command lines and processes them.
