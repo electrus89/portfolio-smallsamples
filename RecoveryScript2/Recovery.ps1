@@ -14,6 +14,12 @@ function Invoke-BatchFile($path) {
     $process = Start-Process -Wait -FilePath "cmd" -WorkingDirectory (Split-Path -Path $path -Parent) -ArgumentList (("/c ")+('"')+("$pwd\$path")+('"'))
 }
 
+# This function adds a .reg file's entries to the registry.
+function Invoke-RegFile($path) {
+    # The argument list looks weird but that's so the concatenation of the quotes around the parameter works properly.
+    $process = Start-Process -Wait -FilePath "cmd" -WorkingDirectory (Split-Path -Path $path -Parent) -ArgumentList (("/c reg add ")+('"')+("$pwd\$path")+('"'))
+}
+
 # This reads all command lines and processes them.
 Get-Content ".\Commands.txt" | ForEach-Object {
     #We need to split the command from the parameter(s)
@@ -40,6 +46,11 @@ Get-Content ".\Commands.txt" | ForEach-Object {
         "InstallBatch" {
             # Run a batch file.
             Invoke-BatchFile -path $commandline[1]
+        }
+
+        "ImportRegFile" {
+            # Import a reg file using the reg add command
+            Invoke-RegFile -path $commandline[1]
         }
     }
 }
