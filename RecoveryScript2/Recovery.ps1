@@ -33,7 +33,7 @@ Get-Content ".\Commands.txt" | ForEach-Object {
         "InstallAll" {
             # Install multiple executables.
             Get-ChildItem -Path $commandline[1] | ForEach-Object {
-                Invoke-Installer $_.FullName
+                Invoke-Installer (($commandline[1])+"\"+($_.Name))
             }
         }
 
