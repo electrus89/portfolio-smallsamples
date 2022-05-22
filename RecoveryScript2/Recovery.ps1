@@ -17,7 +17,7 @@ function Invoke-BatchFile($path) {
 # This reads all command lines and processes them.
 Get-Content ".\Commands.txt" | ForEach-Object {
     #We need to split the command from the parameter(s)
-    $commandline = $_.ToString().Split(":")
+    $commandline = $_.ToString().Split("=")
     Switch ($commandline[0])
     {
         "Install" {
