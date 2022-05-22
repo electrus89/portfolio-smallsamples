@@ -1,19 +1,19 @@
-Install:Files\Apps\7-Zip\7z2107-x64.exe
-Open:Files\Apps\BusinessPlanPro\bpplicense.txt
-Install:Files\Apps\BusinessPlanPro\BPPENU12.exe
-Open:Files\Apps\CorelPainter\PainterLicense.txt
-Install:Files\Apps\CorelPainter\corelpainter2020_windows.exe
-InstallAll:Files\Apps\CorelPainterBrushes
-Install:Files\Apps\Directory Opus\DOpusInstall-12.26.exe
-Open:Files\Apps\Directory Opus\Directory Opus Program Certificate.opuscert
-Open:Files\Apps\ProFantasy\ProFantasy Keys.txt
-InstallAll:Files\Apps\ProFantasy\Installers\A
-InstallAll:Files\Apps\ProFantasy\Installers\B
-Open:Files\Apps\Scapple\ScappleLicense.txt
-Install:Files\Apps\Scapple\Scapple-installer.exe
-Open:Files\Apps\Scrivener\ScrivenerLicense.txt
-Install:Files\Apps\Scrivener\Scrivener-installer.exe
-Open:Files\Apps\SpriteIlluminator\SpriteIlluminatorKEy.txt
-Install:Files\Apps\SpriteIlluminator\SpriteIlluminator-1.5.4-x64.msi
-InstallBatch:Files\Apps\VS2022\vs_updatelayout.cmd
-InstallBatch:Files\Apps\VS2022\vs_install.cmd
+Install=Files\Apps\7-Zip\7z2107-x64.exe
+Open=Files\Apps\BusinessPlanPro\bpplicense.txt
+Install=Files\Apps\BusinessPlanPro\BPPENU12.exe
+Open=Files\Apps\CorelPainter\PainterLicense.txt
+Install=Files\Apps\CorelPainter\corelpainter2020_windows.exe
+InstallAll=Files\Apps\CorelPainterBrushes
+Install=Files\Apps\Directory Opus\DOpusInstall-12.26.exe
+Open=Files\Apps\Directory Opus\Directory Opus Program Certificate.opuscert
+Open=Files\Apps\ProFantasy\ProFantasy Keys.txt
+InstallAll=Files\Apps\ProFantasy\Installers\A
+InstallAll=Files\Apps\ProFantasy\Installers\B
+Open=Files\Apps\Scapple\ScappleLicense.txt
+Install=Files\Apps\Scapple\Scapple-installer.exe
+Open=Files\Apps\Scrivener\ScrivenerLicense.txt
+Install=Files\Apps\Scrivener\Scrivener-installer.exe
+Open=Files\Apps\SpriteIlluminator\SpriteIlluminatorKEy.txt
+Install=Files\Apps\SpriteIlluminator\SpriteIlluminator-1.5.4-x64.msi
+InstallBatch=Files\Apps\VS2022\vs_updatelayout.cmd
+InstallBatch=Files\Apps\VS2022\vs_install.cmd
