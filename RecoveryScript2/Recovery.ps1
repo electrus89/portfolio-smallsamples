@@ -20,6 +20,11 @@ function Invoke-RegFile($path) {
     $process = Start-Process -Wait -FilePath "cmd" -WorkingDirectory (Split-Path -Path $path -Parent) -ArgumentList (("/c reg import ")+('"')+("$pwd\$path")+('"'))
 }
 
+# This function copies a bunch of files using XCOPY.
+function Copy-Files($pathto, $pathfrom) {
+    $process = Start-Process -Wait -FilePath "cmd" -WorkingDirectory $pathto -ArgumentList (("/c xcopy /e /h /y /b /j ")+('"')+("$pwd\$pathfrom")+('" "')+($pathto)+('"'))
+}
+
 # This reads all command lines and processes them.
 Get-Content ".\Commands.txt" | ForEach-Object {
     #We need to split the command from the parameter(s)
@@ -51,6 +56,11 @@ Get-Content ".\Commands.txt" | ForEach-Object {
         "ImportRegFile" {
             # Import a reg file using the reg add command
             Invoke-RegFile -path $commandline[1]
+        }
+
+        "CopyContents" {
+            # Copy Files to the appropriate destination.
+            Copy-Files -pathfrom $commandline[1] -pathto ([System.Environment]::ExpandEnvironmentVariables($commandline[2]))
         }
     }
 }
